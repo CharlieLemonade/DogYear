@@ -59,8 +59,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AñosPerrunos(){
     PosicionPantalla(
-        titulo="Mis Años Perrunos",
-        imagen= painterResource(id=R.drawable.perrunos)
+        titulo="My Dog Age",
+        imagen= painterResource(id=R.drawable.dog)
 
     )
 }
@@ -72,7 +72,7 @@ private fun PosicionPantalla(titulo:String,imagen: Painter,modifier:Modifier=Mod
         Image(
             painter=imagen,
             contentDescription =null,
-            contentScale = ContentScale.FillHeight,
+            contentScale = ContentScale.Crop,
             alignment = Alignment.Center
         )
         Text(
@@ -80,7 +80,7 @@ private fun PosicionPantalla(titulo:String,imagen: Painter,modifier:Modifier=Mod
             modifier=Modifier.padding(16.dp),
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Cursive
+            //fontFamily = FontFamily.Cursive
         )
         OutlinedTextFieldExample()
 
@@ -93,30 +93,30 @@ private fun PosicionPantalla(titulo:String,imagen: Painter,modifier:Modifier=Mod
 @Composable
 fun OutlinedTextFieldExample() {
     var name by remember {
-        mutableStateOf("Edad")
+        mutableStateOf("Age")
     }
     OutlinedTextField(
         value = name,
         onValueChange = { name = it },
-        label = { Text("Mi edad humana") }
+        label = { Text("My human age") }
     )
 }
 @Composable
 fun ElevatedButtonExample(onClick: () -> Unit) {
     ElevatedButton(onClick = { onClick() }) {
-        Text("Calcular")
+        Text("Calculate")
     }
 }
 @Composable
 fun OutLineTextResultado() {
     var name by remember {
-        mutableStateOf("Edad")
+        mutableStateOf("Age")
     }
     OutlinedTextField(
         value = name,
         readOnly = true,
         onValueChange = { name = it },
-        label = { Text("Edad Perruna") }
+        label = { Text("Dog Age") }
     )
 }
 @Preview(showBackground = true)
